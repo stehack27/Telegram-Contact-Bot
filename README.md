@@ -12,7 +12,7 @@ Get your token from <a href = "https://t.me/BotFather">BotFather</a><br>
 Get your UserId with <a href = "https://my.nicegram.app/#/login">Nicegram</a> or with <a href = "https://t.me/userinfobot">UserinfoBot</a><br><br>
 Open <code>config.ini</code><br>
 Insert you Token and you UserID, <u>without</u> quotation marks.<br><br>
-<img src="https://i.imgur.com/0kvNQrY.png" style = "width: 40%"><img><br><br>
+<img src="https://i.imgur.com/0kvNQrY.png" style = "width: 55%"><img><br><br>
 <strong>Start the bot</strong> with <code>python3 main.py</code><br><br><br>
 
 
