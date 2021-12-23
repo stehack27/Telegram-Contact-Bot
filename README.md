@@ -17,6 +17,6 @@ Insert you Token and you UserID, <u>without</u> quotation marks.<br><br>
 
 
 <p>
-<a href="https://t.me/stehack" target="_blank"><img src="https://img.shields.io/badge/-telegram-62a8de?style=for-the-badge&logo=telegram&logoColor=white">
+<a href="https://t.me/stehack" target="_blank"><img src="https://img.shields.io/badge/-telegram-2487d4?style=for-the-badge&logo=telegram&logoColor=white">
 <a href="https://github.com/stehack27" target="_blank"><img src="https://img.shields.io/badge/-github-333?style=for-the-badge&logo=github&logoColor=white">
 </p>
