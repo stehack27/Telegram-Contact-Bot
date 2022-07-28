@@ -1,7 +1,12 @@
 import telegram
 import configparser
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import (
+    Updater,
+    CommandHandler,
+    MessageHandler,
+    Filters,  
+)
 
 
 def start(update, context):
@@ -13,13 +18,15 @@ def start(update, context):
 👋 | **ʜɪ @{update.message.from_user.username}!**
 💬 › ꜱᴇɴᴅ ᴀ ᴍᴇꜱꜱᴀɢᴇ ʜᴇʀᴇ ᴛᴏ ᴄᴏɴᴛᴀᴄᴛ ᴍᴇ!
 '''.replace("@None","@//"),parse_mode=telegram.ParseMode.MARKDOWN, reply_markup=reply_markup)
-   
+
+        
 
 def send(update, context):
     #When a message is sent to the bot, it forwards the message to the owner
     context.bot.forward_message(chat_id=uidown, from_chat_id=update.message.chat_id, message_id=update.message.message_id)
     sendmex = (f"[`{update.message.chat_id}`] - @{update.message.from_user.username}\n\n🗣 | _For reply to user, reply to this message!_").replace("@None", "@//")
     context.bot.send_message(chat_id=uidown, text=sendmex, parse_mode=telegram.ParseMode.MARKDOWN)   
+
     
         
 def reply(update, context):
@@ -34,14 +41,16 @@ def reply(update, context):
                 if "For reply to user, reply to this message!" in update.message.reply_to_message.text:
                     context.bot.send_message(chat_id=uidown, text = "**⚠️ | There was an error! Message hasn't been sent!**", parse_mode=telegram.ParseMode.MARKDOWN)
 
-            
+                    
+                    
 def main():
     #Main function
-    config = configparser.ConfigParser().read('config.ini')
-    TOKEN = config['TOKEN']
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+    TOKEN = config['Config']['TOKEN']
 
     global uidown
-    uidown = config['YOUR_USER_ID']
+    uidown = config['Config']['YOUR_USER_ID']
 
     #Get bot's UserId
     global botid
