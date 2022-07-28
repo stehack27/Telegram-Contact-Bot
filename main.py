@@ -1,5 +1,4 @@
 import telegram
-import logging
 import configparser
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
@@ -9,8 +8,6 @@ from telegram.ext import (
     Filters,  
 )
 
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 def start(update, context):
         #Message to display when the bot starts
@@ -27,8 +24,8 @@ def start(update, context):
 def send(update, context):
     #When a message is sent to the bot, it forwards the message to the owner
     context.bot.forward_message(chat_id=uidown, from_chat_id=update.message.chat_id, message_id=update.message.message_id)
-    sendmex = (f"[<code>{update.message.chat_id}</code>] - @{update.message.from_user.username}\n\n🗣 | <i>For reply to user, reply to this message!</i>").replace("@None", "@//")
-    context.bot.send_message(chat_id=uidown, text=sendmex, parse_mode=telegram.ParseMode.HTML)   
+    sendmex = (f"[`{update.message.chat_id}`] - @{update.message.from_user.username}\n\n🗣 | _For reply to user, reply to this message!_").replace("@None", "@//")
+    context.bot.send_message(chat_id=uidown, text=sendmex, parse_mode=telegram.ParseMode.MARKDOWN)   
 
     
         
@@ -48,9 +45,7 @@ def reply(update, context):
                     
 def main():
     #Main function
-    config = configparser.ConfigParser()
-    config.read('config.ini')
-    config = config['Config']
+    config = configparser.ConfigParser().read('config.ini')
     TOKEN = config['TOKEN']
 
     global uidown
